@@ -18,7 +18,7 @@ public class Main {
         WriteToSpreadSheet sheet = new WriteToSpreadSheet();
         Main m = new Main();
         sheet.initialise();
-        String recordingsHomeDir = "/Users/kylemccann/Development/Project/Google-Voice-Recordings";
+        String recordingsHomeDir = "AudioRecordings";
         //For Current folder
         File[] folders = new File(recordingsHomeDir).listFiles();
 
@@ -47,7 +47,7 @@ public class Main {
                     showFiles(recordingsHomeDir, file.listFiles(), m, directoryName, spoof, microsoft, google, ibm, sheet); // Calls same method again.
                 } else {
                     fileName = file.getName();
-                    if (!fileName.contains(".DS_Store")) {
+                    if (!fileName.contains(".DS_Store")) { //Hide .DS_Store files on MAC
 //                    System.out.println("fileName = " + fileName);
 //                        m.startTest(recordingsHomeDir, directoryName, fileName, spoof, sheet);
                         m.startTest(recordingsHomeDir, directoryName, fileName, ibm, sheet);
@@ -65,7 +65,7 @@ public class Main {
         }
     }
 
-    public void startTest(String recordingsHomeDir, String folderName, String fileName, IApi api, WriteToSpreadSheet sheet) {
+    private void startTest(String recordingsHomeDir, String folderName, String fileName, IApi api, WriteToSpreadSheet sheet) {
 
 
             QualityMetrics m = new QualityMetrics();
@@ -125,7 +125,7 @@ public class Main {
         return result;
     }
 
-    public void splitFileNameIntoParticipantDetails(String fileName, QualityMetrics m) {
+    private void splitFileNameIntoParticipantDetails(String fileName, QualityMetrics m) {
         fileName = fileName.substring(0, fileName.length() - 4);
         String[] split = fileName.split("-");
         System.out.println("Arrays.toString(split) = " + Arrays.toString(split));
