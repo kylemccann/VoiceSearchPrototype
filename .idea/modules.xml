@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/VoiceSearch.iml" filepath="$PROJECT_DIR$/.idea/modules/VoiceSearch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/prototype.iml" filepath="$PROJECT_DIR$/.idea/modules/prototype.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/prototype_main.iml" filepath="$PROJECT_DIR$/.idea/modules/prototype_main.iml" group="prototype" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/prototype_test.iml" filepath="$PROJECT_DIR$/.idea/modules/prototype_test.iml" group="prototype" />
+    </modules>
+  </component>
+</project>
