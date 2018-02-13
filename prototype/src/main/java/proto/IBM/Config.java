@@ -7,8 +7,8 @@ package proto.IBM;
 
 public class Config {
     //These are the omly variables which need to be changed for your configuration.̵
-    private String userName = "099bac4c-3a70-41af-83b5-45798b72f993";
-    private String password = "oi5fYpBqNIIU";
+    private String userName = "";
+    private String password = "";
     private String endPointUrl = "https://stream.watsonplatform.net/speech-to-text/api";
 
     public String getUserName() {
