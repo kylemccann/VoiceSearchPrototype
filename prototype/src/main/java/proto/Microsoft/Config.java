@@ -8,8 +8,8 @@ package proto.Microsoft;
 
 public class Config {
     //These are the omly variables which need to be changed for your configuration.̵
-    private String ApiKey1 = "676111df5bb14e9a83f44ef0d7aa6343";
-    private String ApiKey2 = "5d6dbd1eb8294352a2c48c5018dff365";
+    private String ApiKey1 = "";
+    private String ApiKey2 = "";
     private String endPointUrl = "https://api.cognitive.microsoft.com/sts/v1.0";
     private String language = "en-GB";
     private String recognitionMode = "interactive"; //Utterances of 2-3 seconds
