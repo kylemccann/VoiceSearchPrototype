@@ -1,15 +1,12 @@
 package proto.Microsoft;
-
-
-import com.google.protobuf.ByteString;
-import com.mashape.unirest.http.JsonNode;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
-
-import sun.misc.IOUtils;
+import okio.ByteString;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -32,11 +29,7 @@ public class HttpService {
             // create FileInputStream object
             fin = new FileInputStream(file);
 
-            Path path = Paths.get(filePath);
-            byte[] data = Files.readAllBytes(path);
-            ByteString audioBytes = ByteString.copyFrom(data);
-
-
+            byte[] fileContent = IOUtils.toByteArray(fin);
 
             HttpResponse<JsonNode> jsonResponse = Unirest.post("https://speech.platform.bing.com/speech/recognition/"+ conf.getRecognitionMode() +"/cognitiveservices/v1?language=" + conf.getLanguage() +"&format=detailed")
                     .header("accept", "application/json;text/xml")
@@ -44,13 +37,13 @@ public class HttpService {
                     .header("Ocp-Apim-Subscription-Key", conf.getApiKey1())
                     .header("Host", "speech.platform.bing.com")
                     .header("Expect", "100-continue")
-                    .body(String.valueOf(audioBytes))
+                    .body(fileContent)
                         .asJson();
             if(jsonResponse!=null) { //Check for no response
                 JSONArray array = (JSONArray) jsonResponse.getBody().getObject().get("NBest");
                 JSONObject obj = (JSONObject) array.get(0);
 
-                query = (String) obj.get("Display");
+                query = (String) obj.get("Lexical");
             }
 
 

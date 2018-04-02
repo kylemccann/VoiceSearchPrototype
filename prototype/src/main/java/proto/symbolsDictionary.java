@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
 
+/* This Class contains any symbols which are to be substituted for their english equivalent**/
 public class symbolsDictionary {
 
     String[] sharp = new String[]{" hash", " sharp"};

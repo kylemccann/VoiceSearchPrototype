@@ -6,7 +6,7 @@ import java.io.IOException;
 public class MicrosoftVoice implements IApi {
     public static void main(String... args) throws Exception {
         HttpService http = new HttpService();
-        http.post("/Users/kylemccann/Development/Project/Voice-Recordings/lets-recognise-speech/1-Scottish.wav");
+        http.post("AudioRecordings/9-2-Scottish.wav");
     }
 
 
@@ -21,7 +21,7 @@ public class MicrosoftVoice implements IApi {
             throw e;
         }
 
-//        System.out.println("response = " + response);
+        System.out.println("response = " + response);
         return response;
     }
 }
