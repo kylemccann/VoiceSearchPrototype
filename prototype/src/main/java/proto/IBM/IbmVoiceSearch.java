@@ -24,19 +24,16 @@ public class IbmVoiceSearch implements IApi {
         // Instantiates a client
 
         // The path to the audio file to transcribe
-//        fileName = "/Users/kylemccann/Development/proto.Google.IbmVoiceSearch/rec_3s.wav";
         System.out.println("filePath = " + filePath);
         // Reads the audio file into memory
         Path path = Paths.get(filePath);
         byte[] data = Files.readAllBytes(path);
-        ByteString audioBytes = ByteString.copyFrom(data);
 
 
 
         SpeechToText service = new SpeechToText();
         Config config = new Config();
         service.setUsernameAndPassword(config.getUserName(), config.getPassword());
-        String endpoint = config.getEndPointUrl();
 
 
          Object returnedResult = null;
@@ -44,38 +41,8 @@ public class IbmVoiceSearch implements IApi {
         RecognizeOptions options = bldr.build();
         SpeechResults transcript = service.recognize(path.toFile(), options).execute();
         if (transcript != null) {
-//            String resultsLocation = config.getResultsLocation();
 
                 returnedResult = getBestResult(transcript);
-//                result = transcript;
-            
-               
-                    
-                       
-//                    case SpeechToTextStageConfig.RESPONSE:
-//                        // Add a transformer to run after the stages run
-//                        final Function<QueryRequestAndResponse, QueryRequestAndResponse> transformer
-//                                = context.getProperty(Context.RESPONSE_TRANSFORMER, Function.class);
-//                        context.setProperty("responseTransformer", new Function<QueryRequestAndResponse, QueryRequestAndResponse>() {
-//                            @Override
-//                            public QueryRequestAndResponse apply(QueryRequestAndResponse input) {
-//                                if (transformer != null) {
-//                                    input = transformer.apply(input);
-//                                }
-//                                if (input == null) {
-//                                    return null;
-//                                }
-//                                if (input.response.isPresent()) {
-//                                    Response response = input.response.get();
-//                                    if (response.initialEntity instanceof AppendableResponse) {
-//                                        ((AppendableResponse) response.initialEntity).appendString(resultsKey, result.toString());
-//                                    } else {
-//                                        log.error("Could not add '" + resultsKey + "' to the Fusion response since it is not appendable");
-//                                    }
-//                                }
-//                                return input;
-//                            }
-//                        });
 
                 }
             
